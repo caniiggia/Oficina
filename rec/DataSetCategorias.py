@@ -1,4 +1,5 @@
-category = {"Cultural": {"Teatro Amazonas","Centro Cultural dos Povos da Amazônia"},
+def categoria():
+    categorias = {"Cultural": {"Teatro Amazonas","Centro Cultural dos Povos da Amazônia"},
          
          "Bares":    {"Porão do Alemão","Bar Axerito"},
          
@@ -11,3 +12,4 @@ category = {"Cultural": {"Teatro Amazonas","Centro Cultural dos Povos da Amazôn
          "Lazer":   {"Praia da Ponta Negra", "Cachoeira Alto do Tarumã", "Praça da Saudade","Parque Cidade da Criança", },
          
          "Alimentação":    {"Praça de Alimentação do Parque 10", "Praça de Alimentação do Parque das Laranjeiras"}}
+    return categorias

@@ -1,9 +1,6 @@
 import math
 from DataSetUsuarios import usuario
 from DataSetCategorias import categoria
-users = usuario()
-filtros = categoria()
-
 
 def manhattan (rating1, rating2):
     distance = 0
@@ -35,7 +32,25 @@ def recommend(username, users):
                   key=lambda artistTuple: artistTuple[1],
                   reverse = True)
 
-    
+users = usuario()
+filtros = categoria()
+
+Pessoa= input("digite seu nome:")
+Lugar= input("digite seu lugar turistico 1:")
+Nota1= int(input("diigte a nota:"))
+Lugar2= input("digite seu lugar turistico 2:")
+Nota2 = int(input("digite a nota 2:"))
+Lugares=[Lugar,Lugar2]
+Notas=[Nota1,Nota2]
+Novo=dict(zip(Lugares,Notas))
+users[Pessoa]=Novo
+
+Recomendacao = recommend(Pessoa,users)
+vizinho= computeNearestNeighbor(Pessoa,users)
+print(vizinho)
+print(Recomendacao)
+
+     
 
 
 
