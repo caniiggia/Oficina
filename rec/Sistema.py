@@ -8,14 +8,17 @@ def manhattan (rating1, rating2):
     for key in rating1:
         if key in rating2:
             distance += abs(rating1[key] - rating2[key])
-    return distance
+            return distance
+        return "x"
 
 def computeNearestNeighbor(username, users):
     distances = []
     for user in users:
         if user != username:
             distance = manhattan(users[user], users[username])
-            distances.append((distance, user))
+            #esse if impede pessoas que nao tem lugares em comum de serem parecidos
+            if distance != "x":
+                distances.append((distance, user))
     distances.sort()
     return distances
 
