@@ -1,15 +1,15 @@
 def categoria():
-    categorias = {"Cultural": {"Teatro Amazonas","Centro Cultural dos Povos da Amazônia"},
+    categorias = {"Cultural": {"teatro amazonas","centro cultural dos povos da amazônia"},
          
-         "Bares":    {"Porão do Alemão","Bar Axerito"},
+         "Bares":    {"porão do alemão","bar axerito"},
          
-         "Zoológico":    {"Bosque da Ciência", "CIGS"},
+         "Zoológico":    {"bosque da ciência", "cigs"},
                       
-         "Compras": {"Amazonas Shopping", "Mercado Municipal Adolpho Lisboa"},
+         "Compras": {"amazonas shopping", "mercado municipal adolpho lisboa"},
          
-         "Esportivo":    {"Arena da Amazonia","Arena Paintball", "Shot in the Dark"},
+         "Esportivo":    {"arena da amazônia","arena paintball", "shot in the dark"},
          
-         "Lazer":   {"Praia da Ponta Negra", "Cachoeira Alto do Tarumã", "Praça da Saudade","Parque Cidade da Criança", },
+         "Lazer":   {"praia da ponta negra", "cachoeira alto do tarumã", "praça da saudade","parque cidade da criança", },
          
-         "Alimentação":    {"Praça de Alimentação do Parque 10", "Praça de Alimentação do Parque das Laranjeiras"}}
+         "Alimentação":    {"praça de alimentação do parque 10", "praça de alimentação do parque das laranjeiras"}}
     return categorias

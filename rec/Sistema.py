@@ -5,11 +5,14 @@ from DataSetCategorias import categoria
 
 def manhattan (rating1, rating2):
     distance = 0
+    hasKeys = False
     for key in rating1:
         if key in rating2:
+            hasKeys = True
             distance += abs(rating1[key] - rating2[key])
-            return distance
-        return "x"
+    if hasKeys == False:
+        distance = "x"
+    return distance
 
 def computeNearestNeighbor(username, users):
     distances = []
@@ -22,10 +25,10 @@ def computeNearestNeighbor(username, users):
     distances.sort()
     return distances
 
-
 def recommend(username, users, fylter):
     #aqui encontraremos os vizinhos proximos
     proximos = computeNearestNeighbor(username, users)[0][1]
+    print("\nA pessoa mais compatível com seu perfil é " + proximos + "!\n")
     recomendacoes = []
     neighborRatings = users[proximos]
     userRatings = users[username]
@@ -48,7 +51,8 @@ def Principal():
     #parte dos inputs do usuario:
     lugares = []
     notas = []
-    pessoa= input("Digite seu nome:\n")
+    print("Bem vindo ao Sistema de Recomendação de Lugares Turísticos de Manaus!\n")
+    pessoa= input("Por favor,\nDigite seu nome:\n")
     print("\nPerfil: ", pessoa)
     print("------------------------------------------")
     Menu_Lugares()
@@ -56,6 +60,7 @@ def Principal():
         lugar = input("Digite seu lugar turístico " + str(cont+1) + ":\n")
         nota = int(input("Digite uma nota (de 0 a 5) para " + lugar + ":\n"))
         escolha = input("Deseja avaliar mais lugares?\n")
+        lugar = lugar.lower()
         escolha = escolha.upper()
         lugares.append(lugar)
         notas.append(nota)
@@ -83,9 +88,9 @@ def Principal():
     #adicionando informaçoes do usuario no BD:
     users[pessoa]=Novo_Usuario
     #chamamos a funçao recomendaçao e fazemos a recomendação ao usuario:
-    print(computeNearestNeighbor(pessoa, users))
     Recomendacao = recommend(pessoa,users,fylter)
     return Recomendacao
+
 
 def Menu_Categorias():
     print("Categorias Existentes:\
@@ -119,8 +124,16 @@ def Menu_Lugares():
 
 def Mostrar():
     #recupera e mostra a recomendaçao ao usuario
-    Rec=Principal()
-    print(Rec)
+    recom=Principal()
+    cont = 0
+    if recom == []:
+        print("\nNão há recomendações para você")
+    else:
+        print("Os locais recomendados para você são:")
+        for rec in recom:
+            if(cont<3):
+                print(str(cont+1) + ") " + rec[0])
+                cont+=1
 
 Mostrar()
 
